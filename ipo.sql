@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: db
--- Tempo de geração: 19-Maio-2026 às 11:48
+-- Tempo de geração: 26-Maio-2026 às 11:42
 -- Versão do servidor: 8.4.9
 -- versão do PHP: 8.3.26
 
@@ -530,7 +530,7 @@ ALTER TABLE `cliente`
 -- AUTO_INCREMENT de tabela `empregados`
 --
 ALTER TABLE `empregados`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de tabela `inspecao`
@@ -548,7 +548,7 @@ ALTER TABLE `inspetor`
 -- AUTO_INCREMENT de tabela `lojas`
 --
 ALTER TABLE `lojas`
-  MODIFY `stamp` int NOT NULL AUTO_INCREMENT;
+  MODIFY `stamp` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de tabela `marca`
