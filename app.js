@@ -7,27 +7,14 @@ const app = express();
 const port = 3000;
 app.use(express.json());
 
-
-
-
-
 // Conexão com o banco de dados
 // ter em conta o docker se estiver a utilizar as imagens / containers
 const db = mysql.createPool({
     host: 'localhost',
     user: 'root', // Altere conforme necessário root 
-    password: '', // Altere conforme necessário
+    password: 'root', // Altere conforme necessário
     database: 'ipo'
 });
-
-
-
-
-
-
-
-
-
 
 // Rota para verificar se está ok !
 app.post('/', async (req, res) => {
@@ -37,10 +24,6 @@ app.post('/', async (req, res) => {
         res.status(500).json({ error: error.message });
     }
 });
-
-
-
-
 
 
 
