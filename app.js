@@ -171,11 +171,11 @@ app.post('/loja/inserir', async (req, res) => {
 });
 
 // Rota para editar um novo loja
-app.post('/loja/editar', async (req, res) => {
+app.post('/loja/editar/:cod', async (req, res) => {
     try {
         const { nome, local, telefone, email, website } = req.body;
-        const sql = 'UPDATE INTO lojas (nome, local, telefone, email, website) VALUES (?, ?, ?, ?, ?)';
-        const [result] = await db.query(sql, [nome, local, telefone, email, website]);
+        const sql = 'UPDATE lojas SET nome = ?, local = ?, telefone = ?, email = ?, website = ? WHERE stamp = ?';
+        const [result] = await db.query(sql, [nome, local, telefone, email, website, req.params.cod]);
         res.json({ id: result.insertId, nome, local, telefone, email, website });
     } catch (error) {
         res.status(500).json({ error: error.message });
@@ -240,11 +240,11 @@ app.post('/empregados/inserir', async (req, res) => {
 });
 
 // Rota para criar um novo empregados
-app.post('/empregados/editar', async (req, res) => {
+app.post('/empregados/editar/:cod', async (req, res) => {
     try {
         const { idloja, nome, funcao, email} = req.body;
-        const sql = 'UPDATE INTO empregados (idloja, nome, funcao, email) VALUES (?, ?, ?, ?)';
-        const [result] = await db.query(sql, [idloja, nome, funcao, email]);
+        const sql = 'UPDATE empregados SET idloja = ?, nome = ?, funcao = ?, email = ? WHERE id = ?';
+        const [result] = await db.query(sql, [idloja, nome, funcao, email, req.params.cod]);
         res.json({ id: result.insertId, idloja, nome, funcao, email});
     } catch (error) {
         res.status(500).json({ error: error.message });
